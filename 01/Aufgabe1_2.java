@@ -1,3 +1,6 @@
+// compile with: javac Aufgabe1_2.java
+// run with: java Aufgabe1_2 utf8files/file1.txt file1_converted.zip
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipEntry;
