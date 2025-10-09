@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Aufgabe1_2 {
 
     public static void main(String[] args) {
