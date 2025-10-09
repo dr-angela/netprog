@@ -1,3 +1,6 @@
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 public class Aufgabe1_3 {
 
     /**
@@ -23,6 +26,13 @@ public class Aufgabe1_3 {
         if (payload == null || payload.length == 0) {
             throw new IllegalArgumentException("Payload cannot be null!");
         }
+
+        // Byte Array anlegen: 4 Byte Header, 4 Byte Länge, payload length
+        int totalLength = 4 + 4 + payload.length;
+        ByteBuffer buffer = ByteBuffer.allocate(totalLength);
+        buffer.order(ByteOrder.BIG_ENDIAN); // network byte order
+
+
 
             return buffer.array();
     }
