@@ -61,12 +61,6 @@ public class Aufgabe1_3 {
 
 
 
-
-
-
-
-
-
         return buffer.array();
     }
 
