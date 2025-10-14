@@ -37,6 +37,14 @@ public class Aufgabe1_3 {
         int header = 0;
         header |= (2 & 0x1f) << 27;
 
+        // D-Flag (isData) pos: Bit 17
+        if (isData) {
+            header |= (1 << 16);
+        }
+
+
+        // U-Flag (isUrgent) pos: Bit 16
+
 
 
 
