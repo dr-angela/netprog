@@ -33,14 +33,16 @@ public class Aufgabe1_3 {
         buffer.order(ByteOrder.BIG_ENDIAN); // network byte order
 
 
+        // Header bauen: 32 Bit
+        int header = 0;
+        header |= (2 & 0x1f) << 27;
 
-            return buffer.array();
+
+
+
+
+        return buffer.array();
     }
-
-
-    }
-
-
 
 
 
