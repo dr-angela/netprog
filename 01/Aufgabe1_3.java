@@ -39,7 +39,7 @@ public class Aufgabe1_3 {
 
         // D-Flag (isData) pos: Bit 17
         if (isData) {
-            header |= (1 << 16);
+            header |= (1 << 17);
         }
 
         // U-Flag (isUrgent) pos: Bit 16
