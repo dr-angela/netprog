@@ -42,8 +42,10 @@ public class Aufgabe1_3 {
             header |= (1 << 16);
         }
 
-
         // U-Flag (isUrgent) pos: Bit 16
+        if (isUrgent) {
+            header |= (1 << 16);
+        }
 
 
 
