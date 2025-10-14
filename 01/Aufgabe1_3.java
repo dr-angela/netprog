@@ -47,6 +47,22 @@ public class Aufgabe1_3 {
             header |= (1 << 16);
         }
 
+        // unteren 16 Bit: sequenceNumber
+        header |= (sequenceNumber & 0xffff);
+
+        // schreibe header in den buffer
+        buffer.putInt(header);
+
+        // payload Länge ermitteln
+        buffer.putInt(payload.length);
+
+        // schreibe payload in den buffer
+        buffer.put(payload);
+
+
+
+
+
 
 
 
