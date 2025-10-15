@@ -6,8 +6,13 @@
  *
  * Jeder Thread bekommt einen bestimmten Abschnitt (Startindex bis Endindex)
  * f = erfinden Sie etwas!
- *
+ * Thread 1 → arbeitet auf sharedArray[0..9]
+ * Thread 2 → arbeitet auf sharedArray[10..19]
+ * Thread 3 → arbeitet auf sharedArray[20..29]
  * Danach werden alle Teilergebnisse zu einem gemeinsamen Gesamtergebnis addiert.
+ *
+ * volatile schützt nicht vor gleichzeitigen Änderungen im Array-Inhalt,
+ * sondern nur davor, dass Threads verschiedene Kopien der Variablen sehen
  */
 
 public class TheRealThing extends Thread {
@@ -16,6 +21,9 @@ public class TheRealThing extends Thread {
     private String filename;
     private int start;
     private int end;
+
+    // one variable for all
+    private static volatile float[] sharedArray;
 
     /**
     * Creates a new TheRealThing thread which operates
