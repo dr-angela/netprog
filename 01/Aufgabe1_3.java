@@ -28,6 +28,7 @@ public class Aufgabe1_3 {
         }
 
         // Byte Array anlegen: 4 Byte Header, 4 Byte Länge, payload length
+
         int totalLength = 4 + 4 + payload.length;
         ByteBuffer buffer = ByteBuffer.allocate(totalLength);
         buffer.order(ByteOrder.BIG_ENDIAN); // network byte order
@@ -70,7 +71,6 @@ public class Aufgabe1_3 {
         byte[] payload = new byte[] { 0x01, 0x02, 0x03 };
         byte[] msg = createMsg(true, false, 42, payload);
 
-        // Gib Länge und Inhalt aus
         System.out.println("Gesamtlänge: " + msg.length + " Bytes");
 
         System.out.print("Nachricht (Hex): ");
