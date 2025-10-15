@@ -38,7 +38,7 @@ public class TheRealThing extends Thread {
 
     /**
     * Performs "eine komplizierte Berechnung" on array and
-    * returns the result
+    * returns the result:
     */
     public float eine_komplizierte_Berechnung(float[] array) {
         // TODO ... erfinden Sie etwas, seien Sie kreativ!

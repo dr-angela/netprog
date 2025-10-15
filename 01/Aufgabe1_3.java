@@ -64,6 +64,20 @@ public class Aufgabe1_3 {
         return buffer.array();
     }
 
+    // --- Testmethode zum Ausführen ---
+    public static void main(String[] args) {
+        // Beispiel: Nachricht mit D=true, U=false, sequenceNumber=42, payload={1,2,3}
+        byte[] payload = new byte[] { 0x01, 0x02, 0x03 };
+        byte[] msg = createMsg(true, false, 42, payload);
 
+        // Gib Länge und Inhalt aus
+        System.out.println("Gesamtlänge: " + msg.length + " Bytes");
+
+        System.out.print("Nachricht (Hex): ");
+        for (byte b : msg) {
+            System.out.printf("%02X ", b);
+        }
+        System.out.println();
+    }
 
 }
