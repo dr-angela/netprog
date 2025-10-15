@@ -65,6 +65,7 @@ public class Aufgabe1_3 {
         return buffer.array();
     }
 
+
     // --- Testmethode zum Ausführen ---
     public static void main(String[] args) {
         // Beispiel: Nachricht mit D=true, U=false, sequenceNumber=42, payload={1,2,3}

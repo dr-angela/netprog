@@ -23,14 +23,12 @@ public class Aufgabe1_2 {
         File outputFile = new File(args[1]);
 
         // Error Handling
-
         if (!inputFile.exists() || !inputFile.isFile() || !inputFile.canRead()) {
             System.err.println("Fehler: Eingabedatei ungültig!");
             System.exit(1);
         }
 
         // Block B: Reader und Writer erstellen
-
         try (
                 // Reader UTF8
                 BufferedReader reader = new BufferedReader(
