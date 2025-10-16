@@ -1,6 +1,4 @@
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Aufgabe 1.4 – Java Threads
@@ -87,7 +85,47 @@ public class TheRealThing extends Thread {
         int arraySize = 70;
 
         // example data
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(pathToFile))) {
+            dos.writeUTF("MyArrayData");
+            dos.writeInt(1);
+            dos.writeInt(arraySize);
+            for (int i = 0; i < arraySize; i++) {
+                dos.writeFloat((float) (Math.random() * 1000 ));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Fehler beim Schreiben der Datei! " + e.getMessage());
+        }
+        try {
+            sharedArray = readArrayFromFile(pathToFile);
+            int arrayLength = sharedArray.length;
 
+            TheRealThing[] threads = new TheRealThing[numThreads];
+
+            int baseChunk = arrayLength / numThreads;
+            int remainder = arrayLength % numThreads;
+
+            int startIndex = 0;
+            for (int i = 0; i < numThreads; i++) {
+                int chunkSize = baseChunk + (i < remainder ? 1 : 0);
+                int endIndex = startIndex + chunkSize;
+
+                threads[i] = new TheRealThing(pathToFile, startIndex, endIndex);
+                threads[i].start();
+
+                startIndex = endIndex;
+            }
+
+            // Warten bis alle Threads fertig sind
+            for (TheRealThing t : threads) {
+                t.join();
+            }
+            System.out.println("Endergebnis: " + result);
+
+        } catch (IOException e) {
+            System.err.println("Fehler beim Lesen der Datei: " + e.getMessage());
+        } catch (InterruptedException e) {
+            System.err.println("Thread wurde unterbrochen: " + e.getMessage());
+        }
 
     }
 
