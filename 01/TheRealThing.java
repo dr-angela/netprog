@@ -41,8 +41,13 @@ public class TheRealThing extends Thread {
     * returns the result:
     */
     public float eine_komplizierte_Berechnung(float[] array) {
-        // TODO ... erfinden Sie etwas, seien Sie kreativ!
-        return result;
+        float localSum = 0f;
+        for (int i = start; i < end; i++) {
+            int rounded = Math.round(array[i]);
+            int mod = rounded % 50;
+            localSum += mod * 1.5f;
+        }
+        return localSum;
     }
 
     public void run() {
