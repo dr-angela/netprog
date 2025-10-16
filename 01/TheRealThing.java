@@ -50,8 +50,15 @@ public class TheRealThing extends Thread {
         return localSum;
     }
 
+    @Override
     public void run() {
-    // TODO ...
+        float local = eine_komplizierte_Berechnung(sharedArray);
+
+        // Zugriff auf gemeinsame Variable (synchronized)
+        synchronized (TheRealThing.class) {
+            // sum up
+            result += local;
+        }
     }
 
     public static void main(String[] args) {
