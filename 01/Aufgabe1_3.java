@@ -60,8 +60,6 @@ public class Aufgabe1_3 {
         // schreibe payload in den buffer
         buffer.put(payload);
 
-
-
         return buffer.array();
     }
 
