@@ -69,8 +69,6 @@ public class Aufgabe1_2 {
             System.err.println("Fehler beim Lesen/Schreiben: " + e.getMessage());
             System.exit(1);
         }
-
-
     }
 
 }
