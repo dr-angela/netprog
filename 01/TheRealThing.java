@@ -1,5 +1,8 @@
 import java.io.*;
 
+// javac TheRealThing.java
+// java TheRealThing
+
 /**
  * Aufgabe 1.4 – Java Threads
  * ---------------------------
@@ -19,7 +22,7 @@ import java.io.*;
 
 public class TheRealThing extends Thread {
 
-    private static float result = -1;
+    private static float result = 0f;
     private String filename;
     private int start;
     private int end;
