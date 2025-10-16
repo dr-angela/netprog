@@ -1,3 +1,7 @@
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * Aufgabe 1.4 – Java Threads
  * ---------------------------
@@ -61,11 +65,30 @@ public class TheRealThing extends Thread {
         }
     }
 
+    public static float[] readArrayFromFile(String filename) throws IOException {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(filename))) {
+            String name = dis.readUTF();
+            int id = dis.readInt();
+            int length = dis.readInt();
+
+            float[] arr = new float[length];
+            for (int i = 0; i < length; i++) {
+                arr[i] = dis.readFloat();
+            }
+            return arr;
+        }
+    }
+
+
+
     public static void main(String[] args) {
         String pathToFile = "./myArrayData.dat";
         int numThreads = 12;
         int arraySize = 70;
-        // TODO ...
+
+        // example data
+
+
     }
 
 
